@@ -35,6 +35,16 @@ radio_options = {
     "Chaque jour": 6
 }
 
+
+def get_color(val, steps):
+    if val <= steps[0]:
+        return 'background-color: green'
+    elif val <= steps[1]:
+        return 'background-color: yellow'
+    else:
+        return 'background-color: red'
+
+
 def main():
     st.title("Score Calculator")
 
@@ -48,17 +58,24 @@ def main():
         responses[i] = radio_options[selected_option]
     
     scores = [
-        {'name':'score_sep', 'indices': [0,1,2,5,7,12,13,15,19]},
-        {'name':'score_sd', 'indices': [4,9,10,14,21]},
-        {'name':'score_sap', 'indices': [3,6,8,11,16,17,18,20]}
+        {'name':'score_sep', 'indices': [0,1,2,5,7,12,13,15,19], 'steps':[17,29]},
+        {'name':'score_sd', 'indices': [4,9,10,14,21], 'steps':[5, 11]},
+        {'name':'score_sap', 'indices': [3,6,8,11,16,17,18,20], 'steps':[33,39]}
     ]
+
     if st.button('Calculer les scores'):
+        data = []
         st.write(f'{responses}')
         for el in scores:
             st.write(f'{[responses[i] for i in el["indices"]]}')
             res = sum(responses[i] for i in el['indices'])
             print(el['indices'])
             st.write(f"{el['name']}: {res}")
+            data.append({'Score': el['name'] , 'Valeur': res, 'Steps': el['steps']})
+        df = pd.DataFrame(data)
+        st.dataframe(df)
+        styled_df = df.style.applymap(get_color, subset=['Score', 'Steps'])
+        st.dataframe(styled_df)
             
     # st.subheader("Your Total Score:")
     # st.write(score)
