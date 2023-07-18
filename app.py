@@ -52,7 +52,7 @@ def main():
         {'name':'score_sd', 'indices': [4,9,10,14,21]},
         {'name':'score_sap', 'indices': [3,6,8,11,16,17,18,20]}
     ]
-
+    st.xrite(f'{responses}')
     if st.button('Calculer les scores'):
         for el in scores:
             res = sum(responses[i] for i in el['indices'])
