@@ -54,7 +54,7 @@ def main():
     ]
 
     for el in scores:
-        res = sum(responses[i] for i in el['indices])
+        res = sum(responses[i] for i in el['indices'])
         st.write(f"{el['nam']}: {res}")
             
     st.subheader("Your Total Score:")
