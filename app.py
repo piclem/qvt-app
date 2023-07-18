@@ -45,15 +45,15 @@ def main():
         selected_option = st.radio(question, list(radio_options.keys()), 0)
 
         # Update the score based on the selected option
-        responses += {i: radio_options[selected_option]}
+        responses.append({i: radio_options[selected_option]})
     
     scores = [
         {'name':'score_sep', 'indices': [0,1,2,5,7,12,13,15,19]},
         {'name':'score_sd', 'indices': [4,9,10,14,21]},
         {'name':'score_sap', 'indices': [3,6,8,11,16,17,18,20]}
     ]
-    st.write(f'{responses}')
     if st.button('Calculer les scores'):
+        st.write(f'{responses}')
         for el in scores:
             res = sum(responses[i] for i in el['indices'])
             print(el['indices'])
