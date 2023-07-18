@@ -55,7 +55,7 @@ def main():
     if st.button('Calculer les scores'):
         st.write(f'{responses}')
         for el in scores:
-            st.write(f'[responses[i] for i in el["indices"]]')
+            st.write(f'{[responses[i] for i in el["indices"]]}')
             res = sum(responses[i] for i in el['indices'])
             print(el['indices'])
             st.write(f"{el['name']}: {res}")
