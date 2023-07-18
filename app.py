@@ -53,7 +53,8 @@ def main():
         {'score_sap': [3,6,8,11,16,17,18,20]}
     ]
 
-    for s, indices in scores.items():
+    for el in scores:
+        s, indices = list(el.items())[0]
         sum(score[i] for i in indices)
             
     st.subheader("Your Total Score:")
