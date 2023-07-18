@@ -57,8 +57,8 @@ def main():
         res = sum(responses[i] for i in el['indices'])
         st.write(f"{el['name']}: {res}")
             
-    st.subheader("Your Total Score:")
-    st.write(score)
+    # st.subheader("Your Total Score:")
+    # st.write(score)
 
 
 if __name__ == "__main__":
