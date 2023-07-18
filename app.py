@@ -38,14 +38,14 @@ radio_options = {
 def main():
     st.title("Score Calculator")
 
-    responses = []
+    responses = {}
 
     for i, question in enumerate(questions):
         st.subheader(f"Question {i + 1}:")
         selected_option = st.radio(question, list(radio_options.keys()), 0)
 
         # Update the score based on the selected option
-        responses.append({i: radio_options[selected_option]})
+        responses[i] = radio_options[selected_option]
     
     scores = [
         {'name':'score_sep', 'indices': [0,1,2,5,7,12,13,15,19]},
