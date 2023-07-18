@@ -53,9 +53,10 @@ def main():
         {'name':'score_sap', 'indices': [3,6,8,11,16,17,18,20]}
     ]
 
-    for el in scores:
-        res = sum(responses[i] for i in el['indices'])
-        st.write(f"{el['name']}: {res}")
+    if st.button('Calculer les scores'):
+        for el in scores:
+            res = sum(responses[i] for i in el['indices'])
+            st.write(f"{el['name']}: {res}")
             
     # st.subheader("Your Total Score:")
     # st.write(score)
