@@ -48,14 +48,14 @@ def main():
         responses += {i: radio_options[selected_option]}
     
     scores = [
-        {'score_sep': [0,1,2,5,7,12,13,15,19]},
-        {'score_sd': [4,9,10,14,21]},
-        {'score_sap': [3,6,8,11,16,17,18,20]}
+        {'name':'score_sep', 'indices': [0,1,2,5,7,12,13,15,19]},
+        {'name':'score_sd', 'indices': [4,9,10,14,21]},
+        {'name':'score_sap', 'indices': [3,6,8,11,16,17,18,20]}
     ]
 
     for el in scores:
-        res = sum(responses[i] for i in el.values()[0])
-        st.write(f"{s.keys()[0]}: {res}")
+        res = sum(responses[i] for i in el['indices])
+        st.write(f"{el['nam']}: {res}")
             
     st.subheader("Your Total Score:")
     st.write(score)
