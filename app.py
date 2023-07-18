@@ -26,27 +26,36 @@ questions = [
 ]
 
 radio_options = {
-    "Option 1": 0,
-    "Option 2": 1,
-    "Option 3": 2,
-    "Option 4": 3,
-    "Option 5": 4,
-    "Option 6": 5,
-    "Option 7": 6
+    "Jamais": 0,
+    "Plusieurs fois par an": 1,
+    "Au moins une fois par mois": 2,
+    "Plusieurs fois par mois": 3,
+    "Au moins 1 fois par semaine": 4,
+    "Plusieurs fois par semaine": 5,
+    "Chaque jour": 6
 }
 
 def main():
     st.title("Score Calculator")
 
-    score = 0
+    score = []
 
     for i, question in enumerate(questions):
         st.subheader(f"Question {i + 1}:")
-        selected_option = st.radio(question, list(radio_options.keys()))
+        selected_option = st.radio(question, list(radio_options.keys()), 0)
 
         # Update the score based on the selected option
         score += {i: radio_options[selected_option]}
+    
+    scores = [
+        {'score_sep': [0,1,2,5,7,12,13,15,19]},
+        {'score_sd': [4,9,10,14,21]},
+        {'score_sap': [3,6,8,11,16,17,18,20]}
+    ]
 
+    for s, indices in scores.items():
+        sum(score[i] for i in indices)
+            
     st.subheader("Your Total Score:")
     st.write(score)
 
