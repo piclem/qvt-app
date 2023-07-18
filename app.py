@@ -1,4 +1,5 @@
 import streamlit as st
+import pandas as pd
 questions = [
     "Je me sens émotionnellement épuis(e) par mon travail:",
     "Je me sens à bout à la fin de ma journée de travail:",
