@@ -78,10 +78,10 @@ def main():
         print(scores)
 
         
-        df = pd.DataFrame(scores)
+        df = pd.DataFrame(scores).set_index('Name')
         # st.dataframe(df)
         styled_df = df.style.apply(lambda x:x['Color'])
-        st.dataframe(styled_df.set_index('Name')['Score'])
+        st.dataframe(styled_df['Score'])
             
     # st.subheader("Your Total Score:")
     # st.write(score)
