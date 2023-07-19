@@ -89,7 +89,7 @@ def main():
 
         
         df = pd.DataFrame(scores).set_index('name')
-        st.dataframe(df[['Score', 'Degré']].style.apply(lambda _: np.repeat(df['Color'].to_numpy()[:, np.newaxis], 2, axis=1), axis=None))
+        st.dataframe(df[['Score', 'Degré']].style.apply(lambda _: np.repeat(df['Color'].to_numpy()[:, np.newaxis], 2, axis=1), axis=None), use_container_width=True)
         
         # df = df.style.apply(get_color, axis=1).hide(['indices', 'steps'], axis=1).hide()
         # st.dataframe(df)
