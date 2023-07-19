@@ -79,9 +79,9 @@ def main():
 
         
         df = pd.DataFrame(scores)
-        st.dataframe(df)
-        styled_df = df.style.applymap(lambda x:x, subset=['Color'])
-        st.dataframe(styled_df)
+        # st.dataframe(df)
+        styled_df = df.style.applymap(lambda x:x['Color'])
+        st.dataframe(styled_df.set_index('Name')['Score'])
             
     # st.subheader("Your Total Score:")
     # st.write(score)
