@@ -78,7 +78,7 @@ def main():
         print(scores)
 
         
-        df = pd.DataFrame(scores).set_index('Name')
+        df = pd.DataFrame(scores).set_index('name')
         # st.dataframe(df)
         styled_df = df.style.apply(lambda x:x['Color'])
         st.dataframe(styled_df['Score'])
