@@ -40,11 +40,11 @@ radio_options = {
 def get_color(x):
     val, steps = x['Score'], x['steps']
     if val <= steps[0]:
-        return ['background-color: green']*len(x.keys())
+        return 'background-color: green', 'degré faible'
     elif val <= steps[1]:
-        return ['background-color: yellow']*len(x.keys())
+        return 'background-color: yellow', 'degré moyen'
     else:
-        return ['background-color: red']*len(x.keys())
+        return 'background-color: red', 'degré fort'
 # def apply_color(x):
     
 
@@ -62,9 +62,9 @@ def main():
         responses[i] = radio_options[selected_option]
     
     scores = [
-        {'name':'score_sep', 'indices': [0,1,2,5,7,12,13,15,19], 'steps':[17,29]},
-        {'name':'score_sd', 'indices': [4,9,10,14,21], 'steps':[5, 11]},
-        {'name':'score_sap', 'indices': [3,6,8,11,16,17,18,20], 'steps':[33,39]}
+        {'name':'Score d'Épuisement Professionnel', 'indices': [0,1,2,5,7,12,13,15,19], 'steps':[17,29]},
+        {'name':'Score de Dépersonnalisation', 'indices': [4,9,10,14,21], 'steps':[5, 11]},
+        {'name':'Score d\'Accomplissement Personnel', 'indices': [3,6,8,11,16,17,18,20], 'steps':[33,39]}
     ]
 
     if st.button('Calculer les scores'):
@@ -74,7 +74,9 @@ def main():
             # st.write(f'{[responses[i] for i in el["indices"]]}')
             res = sum(responses[i] for i in el['indices'])
             scores[idx]['Score'] = res
-            # scores[idx]['Color'] = get_color(res, scores[idx]['steps'])
+            c, d = get_color(res, scores[idx]['steps'])
+            scores[idx]['Color'] = c
+            scores[idx]['Degré'] = d
             # print(el['indices'])
             # st.write(f"{el['name']}: {res}")
             # data.append({'Score': el['name'] , 'Valeur': res, 'Steps': el['steps']})
@@ -82,10 +84,10 @@ def main():
 
         
         df = pd.DataFrame(scores).set_index('name')
-        st.dataframe(df)
+        st.dataframe(df[['Score', 'Degré']].style.apply(lambda _:df['Color'].numpy().repeat(2, axis=1) mask, axis=None))
         
-        df = df.style.apply(get_color, axis=1).hide(['indices', 'steps'], axis=1).hide()
-        st.dataframe(df)
+        # df = df.style.apply(get_color, axis=1).hide(['indices', 'steps'], axis=1).hide()
+        # st.dataframe(df)
         
         
     # st.subheader("Your Total Score:")
