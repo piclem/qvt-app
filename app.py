@@ -1,5 +1,7 @@
 import streamlit as st
 import pandas as pd
+import numpy as np
+
 questions = [
     "Je me sens émotionnellement épuis(e) par mon travail:",
     "Je me sens à bout à la fin de ma journée de travail:",
@@ -84,7 +86,7 @@ def main():
 
         
         df = pd.DataFrame(scores).set_index('name')
-        st.dataframe(df[['Score', 'Degré']].style.apply(lambda _:df['Color'].numpy().repeat(2, axis=1), axis=None))
+        st.dataframe(df[['Score', 'Degré']].style.apply(lambda _: np.repeat(df['Color'].to_numpy(), 2, axis=1), axis=None))
         
         # df = df.style.apply(get_color, axis=1).hide(['indices', 'steps'], axis=1).hide()
         # st.dataframe(df)
