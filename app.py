@@ -62,7 +62,7 @@ def main():
         responses[i] = radio_options[selected_option]
     
     scores = [
-        {'name':'Score d'Épuisement Professionnel', 'indices': [0,1,2,5,7,12,13,15,19], 'steps':[17,29]},
+        {'name':'Score d\'Épuisement Professionnel', 'indices': [0,1,2,5,7,12,13,15,19], 'steps':[17,29]},
         {'name':'Score de Dépersonnalisation', 'indices': [4,9,10,14,21], 'steps':[5, 11]},
         {'name':'Score d\'Accomplissement Personnel', 'indices': [3,6,8,11,16,17,18,20], 'steps':[33,39]}
     ]
