@@ -75,13 +75,15 @@ def main():
             # print(el['indices'])
             # st.write(f"{el['name']}: {res}")
             # data.append({'Score': el['name'] , 'Valeur': res, 'Steps': el['steps']})
-        print(scores)
+        # print(scores)
 
         
         df = pd.DataFrame(scores).set_index('name')
         # st.dataframe(df)
-        df = df.style.apply(lambda x:x['Color'], axis=1)
+        
+        df = df.style.apply(lambda x:x['Color'], axis=0)
         st.dataframe(df)
+        
         
     # st.subheader("Your Total Score:")
     # st.write(score)
