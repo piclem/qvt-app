@@ -40,11 +40,13 @@ radio_options = {
 def get_color(x):
     val, steps = x['Score'], x['steps']
     if val <= steps[0]:
-        return 'background-color: green'
+        return ['background-color: green']*len(x.keys())
     elif val <= steps[1]:
-        return 'background-color: yellow'
+        return ['background-color: yellow']*len(x.keys())
     else:
-        return 'background-color: red'
+        return ['background-color: red']*len(x.keys())
+# def apply_color(x):
+    
 
 
 def main():
