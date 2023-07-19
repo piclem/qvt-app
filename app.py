@@ -81,7 +81,7 @@ def main():
         df = pd.DataFrame(scores).set_index('name')
         st.dataframe(df)
         
-        df = df.style.apply(lambda x:x['Color'], axis=0)
+        df = df.style.apply(get_color, columns=['Valeur', 'Steps'], axis=0)
         st.dataframe(df)
         
         
