@@ -67,15 +67,20 @@ def main():
     if st.button('Calculer les scores'):
         data = []
         st.write(f'{responses}')
-        for el in scores:
-            st.write(f'{[responses[i] for i in el["indices"]]}')
+        for idx, el in enumerate(scores):
+            # st.write(f'{[responses[i] for i in el["indices"]]}')
             res = sum(responses[i] for i in el['indices'])
-            print(el['indices'])
-            st.write(f"{el['name']}: {res}")
-            data.append({'Score': el['name'] , 'Valeur': res, 'Steps': el['steps']})
-        df = pd.DataFrame(data)
+            scores[idx]['Score'] = res
+            scores[idx]['Color'] = get_color(res, scores[idx]['steps'])
+            # print(el['indices'])
+            # st.write(f"{el['name']}: {res}")
+            # data.append({'Score': el['name'] , 'Valeur': res, 'Steps': el['steps']})
+        print(scores)
+
+        
+        df = pd.DataFrame(scores)
         st.dataframe(df)
-        styled_df = df.style.applymap(get_color, subset=['Score', 'Steps'])
+        styled_df = df.style.applymap(lambda x:x, subset=['Color'])
         st.dataframe(styled_df)
             
     # st.subheader("Your Total Score:")
