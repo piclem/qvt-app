@@ -66,7 +66,7 @@ def main():
 
     if st.button('Calculer les scores'):
         data = []
-        st.write(f'{responses}')
+        # st.write(f'{responses}')
         for idx, el in enumerate(scores):
             # st.write(f'{[responses[i] for i in el["indices"]]}')
             res = sum(responses[i] for i in el['indices'])
@@ -80,8 +80,8 @@ def main():
         
         df = pd.DataFrame(scores).set_index('name')
         # st.dataframe(df)
-        df.style.apply(lambda x:x['Color'], axis=1)
-        st.dataframe(df['Score'])
+        df = df.style.apply(lambda x:x['Color'], axis=1)
+        st.dataframe(df)
         
     # st.subheader("Your Total Score:")
     # st.write(score)
