@@ -52,7 +52,7 @@ def get_color(x):
 
 
 def main():
-    st.title("Score Calculator")
+    st.title("Évaluer votre niveau d'exposition au stress professionnel et vérifiez votre risque de connaître un burn-out")
     st.markdown(""" <style> table {
     font-size:50px;} 
     </style> """, unsafe_allow_html=True)
