@@ -81,8 +81,8 @@ def main():
         df = pd.DataFrame(scores).set_index('name')
         # st.dataframe(df)
         styled_df = df.style.apply(lambda x:x['Color'])
-        st.dataframe(styled_df['Score'])
-            
+        st.dataframe(df['Score'])
+        
     # st.subheader("Your Total Score:")
     # st.write(score)
 
