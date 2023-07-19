@@ -60,8 +60,8 @@ def main():
     responses = {}
 
     for i, question in enumerate(questions):
-        st.subheader(f"Question {i + 1}:")
-        selected_option = st.radio(question, list(radio_options.keys()), 0)
+        st.subheader(question)#f"Question {i + 1}:")
+        selected_option = st.radio('', list(radio_options.keys()), 0)
 
         # Update the score based on the selected option
         responses[i] = radio_options[selected_option]
