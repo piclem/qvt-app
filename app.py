@@ -37,7 +37,8 @@ radio_options = {
 }
 
 
-def get_color(val, steps):
+def get_color(x):
+    val, steps = x['Valeur'], x['Steps']
     if val <= steps[0]:
         return 'background-color: green'
     elif val <= steps[1]:
@@ -81,7 +82,7 @@ def main():
         df = pd.DataFrame(scores).set_index('name')
         st.dataframe(df)
         
-        df = df.style.apply(get_color, column=['Valeur', 'Steps'], axis=1)
+        df = df.style.apply(get_color, axis=0)
         st.dataframe(df)
         
         
