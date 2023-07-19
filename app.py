@@ -72,7 +72,7 @@ def main():
             # st.write(f'{[responses[i] for i in el["indices"]]}')
             res = sum(responses[i] for i in el['indices'])
             scores[idx]['Score'] = res
-            scores[idx]['Color'] = get_color(res, scores[idx]['steps'])
+            # scores[idx]['Color'] = get_color(res, scores[idx]['steps'])
             # print(el['indices'])
             # st.write(f"{el['name']}: {res}")
             # data.append({'Score': el['name'] , 'Valeur': res, 'Steps': el['steps']})
