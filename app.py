@@ -74,7 +74,7 @@ def main():
             # st.write(f'{[responses[i] for i in el["indices"]]}')
             res = sum(responses[i] for i in el['indices'])
             scores[idx]['Score'] = res
-            c, d = get_color((res, scores[idx]['steps']))
+            c, d = get_color(scores[idx])
             scores[idx]['Color'] = c
             scores[idx]['Degré'] = d
             # print(el['indices'])
