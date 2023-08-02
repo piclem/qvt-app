@@ -19,11 +19,11 @@ questions = [
     "Je sens que je travaille 'trop dur' dans mon travail:",
     "Je ne me soucie pas vraiment de ce qui arrive à certains de mes clients ou autres interlocuteurs:",
     "Travailler en contact direct avec les gens me stresse trop:",
-    "J'arrive facilement à créer une atmosphère détendue avec mes clients et autres interlocuterusr:",
-    "Je me sens ragaillardi(e) lorsque dans mon travail j'ai été proche de clients et autres interlocuterus:",
+    "J'arrive facilement à créer une atmosphère détendue avec mes clients et autres interlocuteurs:",
+    "Je me sens ragaillardi(e) lorsque dans mon travail j'ai été proche de clients et autres interlocuteurs:",
     "J'ai accompli beaucoup de choses qui en valent la peine dans ce travail:",
     "Je me sens au bout du rouleau:",
-    "Dans mon travail, e traite les problmes émotionnels très calmement:",
+    "Dans mon travail, je traite les problèmes émotionnels très calmement:",
     "J'ai l'impression que mes clients et autres interlocuteurs me rendent responsable de certains de leurs problèmes:",
     # Add the rest of your questions here
 ]
